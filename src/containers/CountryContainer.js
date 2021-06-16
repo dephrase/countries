@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CountryList from '../components/CountryList';
 import CountryDetail from '../components/CountryDetail';
+import CountrySelect from '../components/CountrySelect';
 
 import '../styles/styles.css';
 
@@ -28,7 +29,7 @@ const CountryContainer = () => {
 
     return(
         <div className="countryContainer">
-        <CountryList countries={countries} onCountryClick={onCountryClick}/>
+        <CountrySelect countries={countries} onCountryClick={onCountryClick}/>
         {selectedCountry ? <CountryDetail selectedCountry={selectedCountry}/> : null}
         
         </div>
