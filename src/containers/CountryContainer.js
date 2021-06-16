@@ -26,15 +26,6 @@ const CountryContainer = () => {
         .then(countries => setCountries(countries))
         
     }
-
-    const getCountryFromCode = function(code){
-        let countryName = ""
-        for(country in countries){
-            if(country.alpha3Code === code){
-                countryName = country.name;
-            }
-        }
-    }
     
     function calculateTotalPop(countries){
         let totalPopulation = countries.reduce((total, country) => {
