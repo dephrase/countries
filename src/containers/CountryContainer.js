@@ -9,6 +9,9 @@ const CountryContainer = () => {
 
     const [countries, setCountries] = useState(([]))
     const [selectedCountry, setSelectedCountry] = useState((null))
+    const [surroundingCountries, setSurroundingCountries] = useState((null))
+
+    console.log("Hoya: " + surroundingCountries)
 
     useEffect( () => {
         getCountries()
@@ -16,6 +19,7 @@ const CountryContainer = () => {
 
     const onCountryClick = (country) => {
         setSelectedCountry(country)
+        setSurroundingCountries(country.borders)
     }
 
     const getCountries = function(){
@@ -33,14 +37,13 @@ const CountryContainer = () => {
     }
 
     let totalPop = calculateTotalPop(countries)
-    console.log("Total population is: " + totalPop)
 
     return(
         <div className="countryContainer">
         <h1>Welcome to Countries thing</h1>
         <h3>The total population of all countries is: {totalPop}</h3>
         <CountrySelect countries={countries} onCountryClick={onCountryClick}/>
-        {selectedCountry ? <CountryDetail selectedCountry={selectedCountry}/> : null}
+        {selectedCountry ? <CountryDetail selectedCountry={selectedCountry} surroundingCountries={surroundingCountries}/> : null}
         
         </div>
     )
