@@ -6,6 +6,8 @@ const CountryDetail = ({selectedCountry, surroundingCountries}) => {
         return <p>{country}</p>
     })
 
+    
+
     return(
 
     <div>

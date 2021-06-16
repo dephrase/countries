@@ -11,8 +11,6 @@ const CountryContainer = () => {
     const [selectedCountry, setSelectedCountry] = useState((null))
     const [surroundingCountries, setSurroundingCountries] = useState((null))
 
-    console.log("Hoya: " + surroundingCountries)
-
     useEffect( () => {
         getCountries()
     }, [])
@@ -27,6 +25,15 @@ const CountryContainer = () => {
         .then(res => res.json())
         .then(countries => setCountries(countries))
         
+    }
+
+    const getCountryFromCode = function(code){
+        let countryName = ""
+        for(country in countries){
+            if(country.alpha3Code === code){
+                countryName = country.name;
+            }
+        }
     }
     
     function calculateTotalPop(countries){
